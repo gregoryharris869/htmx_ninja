@@ -1,5 +1,6 @@
 import express from 'express';
 import createHomepageTemplate from './views/index.js';
+import createListTemplate from './views/list.js';
 
 // create app
 const app = express();
@@ -13,7 +14,12 @@ app.get('/', (req, res) => {
   res.send(createHomepageTemplate());
 });
 
+app.get('/books', (req, res) => {
+  res.send(createListTemplate());
+});
+
 // listen to port http://localhost:3000/
+// nodemon app.js
 app.listen(3000, () => {
   console.log('App listening on port 3000');
 });
